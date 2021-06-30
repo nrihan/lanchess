@@ -20,7 +20,7 @@
 
 - **Computadores com conexão em LAN:** Os computadores que vão se comunicar via rede com o servidor;
   
-- **Computador:** Espaço interno de 1MB, Processador Celeron.  
+- **Computador:** 2GB de RAM, Processador Celeron.  
 
 ## Porque usamos o Protocolo TCP 
 
