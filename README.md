@@ -96,8 +96,8 @@ class ConexaoCliente:
 <p> Temos uma constante própria que especifica a comunicação remota, chamada de AF_INET. Essa constante faz parte de um grupo denominado famílias de endereços, ou address families, que constitui exatamente o primeiro parâmetro opcional do construtor socket. A AF_INET abrange os endereços do tipo IPv4, antigo padrão da Internet.</p>
 <p> Em relação ao tipo do socket, existem duas constantes mais importantes - a SOCK_STREAM, que define sockets de fluxo, e a SOCK_DGRAM, que define sockets de datagrama. Estamos usando a SOCK_STREAM pois basicamente, um socket de fluxo se refere ao protocolo TCP, enquanto um socket de datagrama, ao UDP.</p>
 <p> bind () associa o soquete ao seu endereço local [é por isso que o lado do servidor se liga, para que os clientes possam usar esse endereço para se conectar ao servidor.] 
-connect () é usado para se conectar a um endereço [servidor] remoto, é por isso que é do lado do cliente , conectar [ler como: conectar ao servidor] é usado.
-listen () é responsável por permitir que o servidor aceite conexões e o accept () é responsável por aceitar a conexão.</p>
+<br>connect () é usado para se conectar a um endereço [servidor] remoto, é por isso que é do lado do cliente , conectar [ler como: conectar ao servidor] é usado.
+<br>listen () é responsável por permitir que o servidor aceite conexões e o accept () é responsável por aceitar a conexão.</p>
     
 </body>
 </html>
