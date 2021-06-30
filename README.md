@@ -36,60 +36,75 @@
       <br>– Protocolo;
       <br>– Porta.
   
-### Conexão a partir do servidor
+### Conexão servidor/cliente
 
 ```sh
 import socket
+import sys
 
-class ConexaoServidor:
+class Conexao:
+    def __init__(self, modo, ip = '', porta = ''):
+        self.ip = ip
+        self.porta = int(porta)
+        self.enderecoServidor = (self.ip, self.porta)
+        self.conexao = None
+        self.enderecoCliente = None
+        self.sock = None
 
-  def __init__(self):
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    enderecoServidor = ('10.0.0.106', 5000)
-    sock.bind(enderecoServidor)
-    sock.listen(1)
-    self.conexao, self.enderecoCliente = sock.accept()
+        if(modo == 'servidor'):
+            self.IniciarConexaoServidor()
+        elif(modo == 'cliente'):
+            self.IniciarConexaoCliente()
+    
+    def IniciarConexaoServidor(self):
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.sock.bind(self.enderecoServidor)
+        self.sock.listen(1)
+        self.conexao, self.enderecoCliente = self.sock.accept()
 
-  def enviar(self, dado):
-    self.conexao.sendall(dado.encode('utf-8'))
+    def EnviarServidor(self, dado):
+        self.conexao.sendall(dado.encode('utf-8'))
 
-  def receber(self):
-    dado = self.conexao.recv(1024)
+    def ReceberServidor(self):
+        dado = self.conexao.recv(1024)
 
-    # if not dado:
-      # Conexão perdida com o cliente
+        if(not dado):
+            print('Conexão com cliente perdida.')
+            sys.exit(1)
 
-    return dado.decode('utf-8')
-```
+        return dado.decode('utf-8')
 
-### Conexão a partir do cliente
+    def IniciarConexaoCliente(self):
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-```sh
-import socket
+        i = 0
+        while(True):
+            try:
+                self.sock.connect(self.enderecoServidor)
+                break
+            except:
+                print('Conexão recusada. Tentando novamente...')
 
-class ConexaoCliente:
+                i += 1
 
-  def __init__(self):
-    self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    enderecoServidor = ('10.0.0.106', 5000)
-    self.sock.connect(enderecoServidor)
+                if(i == 5):
+                    print('Conexão falhou! Cheque as informações de IP e porta, depois tente novamente.')
+                    sys.exit(1)
 
+    def EnviarCliente(self, dado):
+        self.sock.sendall(dado.encode('utf-8'))
 
-  def enviar(self, dado):
-    self.sock.sendall(dado.encode('utf-8'))
+    def ReceberCliente(self):
+        dado = self.sock.recv(1024)
 
+        if(not dado):
+            print('Conexão com servidor perdida.')
+            sys.exit(1)
 
-  def receber(self):
-    dado = self.sock.recv(1024)
+        return dado.decode('utf-8')
 
-    # if not dado:
-      # Conexão perdida com o cliente
-
-    return dado.decode('utf-8')
-
-
-  def finalizar(self):
-    self.sock.close()
+    def Finalizar(self):
+        self.sock.close()```
 ```
 ### Comentários 
 <p>Inicializamos a aplicação criando um socket para fazer a ligação, logo após inserimos um construtor com os dados de IP e Porta para que possamos dar entrada na conexão e testar se o socket já está "ouvindo". Logo após temos dois métodos responsáveis por controlar o envio e o recebimento das mensagens, o tipo de dado é uma string codificada em UTF-8 que contém as posições das peças de xadrez.</p> 
