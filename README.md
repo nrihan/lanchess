@@ -83,10 +83,10 @@ class ConexaoServidor:
 
     return dado.decode('utf-8')
 ```
-  
 
-
+## Camada de Aplicação 
+<p>
+  A conexão se inicia pela máquina **HOST** ou **SERVIDOR**  
+</p>
 </body>
 </html>
-
-
