@@ -98,7 +98,7 @@ class ConexaoCliente:
   
 - **Bind():** Associa o soquete ao seu endereço local [é por isso que o lado do servidor se liga, para que os clientes possam usar esse endereço para se conectar ao servidor.] 
 - **Connect():** É usado para se conectar a um endereço [servidor] remoto, é por isso que é do lado do cliente , conectar [ler como: conectar ao servidor] é usado.
-- **Listen():** É responsável por permitir que o servidor aceite conexões e o accept () é responsável por aceitar a conexão.
-    
+- **Listen():** É responsável por permitir que o servidor aceite conexões.
+- **Accept():** É responsável por aceitar a conexão.
 </body>
 </html>
