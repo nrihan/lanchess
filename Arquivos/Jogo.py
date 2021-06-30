@@ -524,7 +524,6 @@ def Main():
 
     if(modo == 'cliente'):
         print()
-        print('Conectando ao servidor...')
         conexao = Conexao(modo, ip, porta)
         print('Conectado.\n')
         usuario.corPecas = EscolherCorCliente(conexao)
@@ -541,7 +540,6 @@ def Main():
 
     elif(modo == 'servidor'):
         print()
-        print('Aguardando conexão do cliente...')
         conexao = Conexao(modo, ip, porta)
         print('Conectado.\n')
         usuario.corPecas = EscolherCorServidor(conexao)

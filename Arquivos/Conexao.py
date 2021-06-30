@@ -17,9 +17,32 @@ class Conexao:
     
     def IniciarConexaoServidor(self):
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.sock.bind(self.enderecoServidor)
+
+        teveProblema = False
+        porta = 0
+
+        while(True):
+            try:
+                if(teveProblema):
+                    self.porta = int(input('Porta: '))
+                    self.enderecoServidor = (self.ip, self.porta)
+
+                    teveProblema = False
+
+                print('Criando servidor...')
+                self.sock.bind(self.enderecoServidor)
+                break
+
+            except:
+                print('Porta indisponível. Tente outra.\n')
+                teveProblema = True
+        
+
+        print('Servidor criado.')
+        print('Aguardando conexão do cliente...')
         self.sock.listen(1)
         self.conexao, self.enderecoCliente = self.sock.accept()
+
 
     def EnviarServidor(self, dado):
         self.conexao.sendall(dado.encode('utf-8'))
@@ -39,6 +62,7 @@ class Conexao:
         i = 0
         while(True):
             try:
+                print('Conectando ao servidor...')
                 self.sock.connect(self.enderecoServidor)
                 break
             except:
@@ -47,7 +71,7 @@ class Conexao:
                 i += 1
 
                 if(i == 5):
-                    print('Conexão falhou! Cheque as informações de IP e porta, depois tente novamente.')
+                    print('\nConexão falhou! Cheque as informações de IP e porta, depois tente novamente.')
                     sys.exit(1)
 
     def EnviarCliente(self, dado):
