@@ -23,60 +23,60 @@ class Peao(Peca):
 		if(self.orientacao):
 			if self.cor == 'Brancas':
 				if outraPeca.pecaChar == '|_|':
-					if posicao[0] + 1 != self.posicao(self)[0]:
+					if posicao[0] + 1 != self.posicao[0]:
 						return False
-					if posicao[1] != self.posicao(self)[1]:
+					if posicao[1] != self.posicao[1]:
 						return False
 				else:
-					if posicao[0] + 1 != self.posicao(self)[0]:
+					if posicao[0] + 1 != self.posicao[0]:
 						return False
-					if posicao[1] - 1 != self.posicao(self)[1] and posicao[1] + 1 != self.posicao(self)[1]:
+					if posicao[1] - 1 != self.posicao[1] and posicao[1] + 1 != self.posicao[1]:
 						return False
-					if  outraPeca.cor == self.cor(self):
+					if  outraPeca.cor == self.cor:
 						return False
 				return True
 			if self.cor == 'Pretas':
 				if outraPeca.pecaChar == '|_|':
-					if posicao[0] - 1 != self.posicao(self)[0]:
+					if posicao[0] - 1 != self.posicao[0]:
 						return False
-					if posicao[1] != self.posicao(self)[1]:
+					if posicao[1] != self.posicao[1]:
 						return False
 				else:
-					if posicao[0] - 1 != self.posicao(self)[0]:
+					if posicao[0] - 1 != self.posicao[0]:
 						return False
-					if posicao[1] - 1 != self.posicao(self)[1] and posicao[1] + 1 != self.posicao(self)[1]:
+					if posicao[1] - 1 != self.posicao[1] and posicao[1] + 1 != self.posicao[1]:
 						return False
-					if  outraPeca.cor == self.cor(self):
+					if  outraPeca.cor == self.cor:
 						return False
 				return True
 
 		else:
-			if self.cor(self) == 'Brancas':
+			if self.cor == 'Brancas':
 				if outraPeca.pecaChar == '|_|':
-					if posicao[0] - 1 != self.posicao(self)[0]:
+					if posicao[0] - 1 != self.posicao[0]:
 						return False
-					if posicao[1] != self.posicao(self)[1]:
+					if posicao[1] != self.posicao[1]:
 						return False
 				else:
-					if posicao[0] - 1 != self.posicao(self)[0]:
+					if posicao[0] - 1 != self.posicao[0]:
 						return False
-					if posicao[1] + 1 != self.posicao(self)[1] and posicao[1] + 1 != self.posicao(self)[1]:
+					if posicao[1] + 1 != self.posicao[1] and posicao[1] + 1 != self.posicao[1]:
 						return False
-					if  outraPeca.cor == self.cor(self):
+					if  outraPeca.cor == self.cor:
 						return False
 				return True
-			if self.cor(self) == 'Pretas':
+			if self.cor == 'Pretas':
 				if outraPeca.pecaChar == '|_|':
-					if posicao[0] + 1 != self.posicao(self)[0]:
+					if posicao[0] + 1 != self.posicao[0]:
 						return False
-					if posicao[1] != self.posicao(self)[1]:
+					if posicao[1] != self.posicao[1]:
 						return False
 				else:
-					if posicao[0] + 1 != self.posicao(self)[0]:
+					if posicao[0] + 1 != self.posicao[0]:
 						return False
-					if posicao[1] + 1 != self.posicao(self)[1] and posicao[1] - 1 != self.posicao(self)[1]:
+					if posicao[1] + 1 != self.posicao[1] and posicao[1] - 1 != self.posicao[1]:
 						return False
-					if  outraPeca.cor == self.cor(self):
+					if  outraPeca.cor == self.cor:
 						return False
 				return True
 
@@ -91,17 +91,17 @@ class Cavalo(Peca):
 	def verificaMovimento(self, outraPeca, tabuleiro):
 		posicao = outraPeca.posicao
 		
-		if ((posicao[0] - 2 == self.posicao(self)[0] or posicao[0] + 2 == self.posicao(self)[0]) and
-		(posicao[1] - 1 == self.posicao(self)[1] or posicao[1] + 1 == self.posicao(self)[1])):
+		if ((posicao[0] - 2 == self.posicao[0] or posicao[0] + 2 == self.posicao[0]) and
+		(posicao[1] - 1 == self.posicao[1] or posicao[1] + 1 == self.posicao[1])):
 			if outraPeca.pecaChar == '|_|':
 				return True
-			if outraPeca.cor != self.cor(self):
+			if outraPeca.cor != self.cor:
 				return True
-		elif ((posicao[1] - 2 == self.posicao(self)[1] or posicao[1] + 2 == self.posicao(self)[1]) and
-		(posicao[0] - 1 == self.posicao(self)[0] or posicao[0] + 1 == self.posicao(self)[0])):
+		elif ((posicao[1] - 2 == self.posicao[1] or posicao[1] + 2 == self.posicao[1]) and
+		(posicao[0] - 1 == self.posicao[0] or posicao[0] + 1 == self.posicao[0])):
 			if outraPeca.pecaChar == '|_|':
 				return True
-			if outraPeca.cor != self.cor(self):
+			if outraPeca.cor != self.cor:
 				return True
 			
 		return False

@@ -1,5 +1,6 @@
 import time
 import os
+import sys
 from random import randint
 from Arquivos.Usuario import Usuario
 from Arquivos.Conexao import Conexao
@@ -7,75 +8,75 @@ from Arquivos.Pecas import *
 
 
 class ConjuntoPecas:
-	def __init__(self, corPecas, corUsuario):
-		self.cor = corPecas
+    def __init__(self, corPecas, corUsuario):
+        self.cor = corPecas
 
-		self.pecas = []
+        self.pecas = []
 
-		if(corUsuario == 'Brancas'):
-			if(self.cor == 'Pretas'):
-				i = 0
-				while i < 8:
-					self.pecas.append(Peao([1, i], False, True))
-					i += 1
+        if(corUsuario == 'Brancas'):
+            if(self.cor == 'Pretas'):
+                i = 0
+                while i < 8:
+                    self.pecas.append(Peao([1, i], False, True))
+                    i += 1
 
-				self.pecas.append(Torre([0, 0], False))
-				self.pecas.append(Cavalo([0, 1], False))
-				self.pecas.append(Bispo([0, 2], False))
-				self.pecas.append(Dama([0, 3], False))
-				self.pecas.append(Rei([0, 4], False))
-				self.pecas.append(Bispo([0, 5], False))
-				self.pecas.append(Cavalo([0, 6], False))
-				self.pecas.append(Torre([0, 7], False))
-				
+                self.pecas.append(Torre([0, 0], False))
+                self.pecas.append(Cavalo([0, 1], False))
+                self.pecas.append(Bispo([0, 2], False))
+                self.pecas.append(Dama([0, 3], False))
+                self.pecas.append(Rei([0, 4], False))
+                self.pecas.append(Bispo([0, 5], False))
+                self.pecas.append(Cavalo([0, 6], False))
+                self.pecas.append(Torre([0, 7], False))
+                
 
-			elif(self.cor == 'Brancas'):
-				i = 0
-				while i < 8:
-					self.pecas.append(Peao([6, i], True, True))
-					i += 1
-				
-				self.pecas.append(Torre([7, 0], True))
-				self.pecas.append(Cavalo([7, 1], True))
-				self.pecas.append(Bispo([7, 2], True))
-				self.pecas.append(Dama([7, 3], True))
-				self.pecas.append(Rei([7, 4], True))
-				self.pecas.append(Bispo([7, 5], True))
-				self.pecas.append(Cavalo([7, 6], True))
-				self.pecas.append(Torre([7, 7], True))
-
-
-		elif(corUsuario == 'Pretas'):
-			if(self.cor == 'Brancas'):
-				i = 0
-				while i < 8:
-					self.pecas.append(Peao([1, i], True, False))
-					i += 1
-
-				self.pecas.append(Torre([0, 0], True))
-				self.pecas.append(Cavalo([0, 1], True))
-				self.pecas.append(Bispo([0, 2], True))
-				self.pecas.append(Dama([0, 3], True))
-				self.pecas.append(Rei([0, 4], True))
-				self.pecas.append(Bispo([0, 5], True))
-				self.pecas.append(Cavalo([0, 6], True))
-				self.pecas.append(Torre([0, 7], True))
+            elif(self.cor == 'Brancas'):
+                i = 0
+                while i < 8:
+                    self.pecas.append(Peao([6, i], True, True))
+                    i += 1
+                
+                self.pecas.append(Torre([7, 0], True))
+                self.pecas.append(Cavalo([7, 1], True))
+                self.pecas.append(Bispo([7, 2], True))
+                self.pecas.append(Dama([7, 3], True))
+                self.pecas.append(Rei([7, 4], True))
+                self.pecas.append(Bispo([7, 5], True))
+                self.pecas.append(Cavalo([7, 6], True))
+                self.pecas.append(Torre([7, 7], True))
 
 
-			if(self.cor == 'Pretas'):
-				i = 0
-				while i < 8:
-					self.pecas.append(Peao([6, i], False, False))
-					i += 1
+        elif(corUsuario == 'Pretas'):
+            if(self.cor == 'Brancas'):
+                i = 0
+                while i < 8:
+                    self.pecas.append(Peao([1, i], True, False))
+                    i += 1
 
-				self.pecas.append(Torre([7, 0], False))
-				self.pecas.append(Cavalo([7, 1], False))
-				self.pecas.append(Bispo([7, 2], False))
-				self.pecas.append(Dama([7, 3], False))
-				self.pecas.append(Rei([7, 4], False))
-				self.pecas.append(Bispo([7, 5], False))
-				self.pecas.append(Cavalo([7, 6], False))
-				self.pecas.append(Torre([7, 7], False))
+                self.pecas.append(Torre([0, 0], True))
+                self.pecas.append(Cavalo([0, 1], True))
+                self.pecas.append(Bispo([0, 2], True))
+                self.pecas.append(Dama([0, 3], True))
+                self.pecas.append(Rei([0, 4], True))
+                self.pecas.append(Bispo([0, 5], True))
+                self.pecas.append(Cavalo([0, 6], True))
+                self.pecas.append(Torre([0, 7], True))
+
+
+            if(self.cor == 'Pretas'):
+                i = 0
+                while i < 8:
+                    self.pecas.append(Peao([6, i], False, False))
+                    i += 1
+
+                self.pecas.append(Torre([7, 0], False))
+                self.pecas.append(Cavalo([7, 1], False))
+                self.pecas.append(Bispo([7, 2], False))
+                self.pecas.append(Dama([7, 3], False))
+                self.pecas.append(Rei([7, 4], False))
+                self.pecas.append(Bispo([7, 5], False))
+                self.pecas.append(Cavalo([7, 6], False))
+                self.pecas.append(Torre([7, 7], False))
 
 
     def EstaCheck(self, tabuleiro, outroConjunto):
@@ -86,7 +87,6 @@ class ConjuntoPecas:
                     return(True)
 
         return(False)
-
 
     def EstaCheckmate(self, tabuleiro, outroConjunto):
         posicaoRei = self.pecas[12].posicao
@@ -102,7 +102,7 @@ class ConjuntoPecas:
                 casasPermitidas.append(peca)
 
         casasNaoPermitidas = casasPermitidas[:]
-        for p in outroConjunto:
+        for p in outroConjunto.pecas:
             for i, c in enumerate(casasPermitidas):
                 if(p.verificaMovimento(c, tabuleiro)):
                     casasNaoPermitidas[i] = None
@@ -199,13 +199,20 @@ def PrepararTabuleiro(usuario, ConjuntoPecasBrancas, ConjuntoPecasPretas):
 
 
 def ImprimirTabuleiro(tabuleiro):
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system('clear || cls')
 
     print()
     print('### XADREZ ###')
     print()
 
-    for x in tabuleiro:
+    print('  ', end='')
+    for x in range(8):
+        auxStr = ' ' + str(x) + ' '
+        print(auxStr, end='')
+    print()
+
+    for i, x in enumerate(tabuleiro):
+        print(str(i) + ' ', end='')
         for y in x:
             print(y.pecaChar, end='')
         print()
@@ -219,18 +226,20 @@ def MoverPecas(tabuleiro, origem, destino):
     pecaDestino = tabuleiro[destino[0]][destino[1]]
 
     if(pecaOrigem.cor == pecaDestino.cor):
-        return False, tabuleiro
+        return(False, tabuleiro)
     elif(pecaOrigem.verificaMovimento(pecaDestino, tabuleiro)):
+        pecaOrigem.posicao = destino
+
         pecaDestino = pecaOrigem
+
         pecaOrigem = Peca([origem[0], origem[1]])
 
         tabuleiro[origem[0]][origem[1]] = pecaOrigem
         tabuleiro[destino[0]][destino[1]] = pecaDestino
 
-        return True, tabuleiro
-    
+        return(True, tabuleiro)
 
-    return False, tabuleiro
+    return(False, tabuleiro)
 
 
 def EscolherCorServidor(conexao):
@@ -242,6 +251,7 @@ def EscolherCorServidor(conexao):
 
     tempoDemoraSegundosLocal = float('{:.5f}'.format(tempoFimEscolha - tempoInicioEscolha))
     
+    print('Aguardando escolha do cliente...\n')
     dadoRecebido = conexao.ReceberServidor()
     dadoRecebido = dadoRecebido.split(';')
     corEscolhidaLan = dadoRecebido[0]
@@ -284,171 +294,226 @@ def EscolherCorCliente(conexao):
     dadoEnvio = corEscolhidaLocal + ';' + '{:.5f}'.format(tempoDemoraSegundosLocal)
 
     conexao.EnviarCliente(dadoEnvio)
-
+    
+    print('Aguardando escolha do servidor...\n')
     corEscolhidaLocal = conexao.ReceberCliente()
 
     return(corEscolhidaLocal)
 
 
 def TratarJogada(jogada):
-    jogada = jogada.split('')
+    jogada = jogada.split()
     jogada = ''.join(jogada)
     jogada = jogada.split('=>')
     origem = jogada[0].split('x')
     destino = jogada[1].split('x')
 
+    origem[0] = int(origem[0])
+    origem[1] = int(origem[1])
+    destino[0] = int(destino[0])
+    destino[1] = int(destino[1])
+
     return origem, destino
 
 
 def JogarServidor(tabuleiro, pecasBrancas, pecasPretas, usuario, conexao):
-    numeroTurno = 0
-    perdeu = False
-    conjuntoAdversario = None
-    
-    ImprimirTabuleiro(tabuleiro)
-
-    if(usuario.corPecas == 'Brancas'):
-        numeroJogador = 0
-        conjuntoAdversario = pecasPretas
-    elif(usuario.corPecas == 'Pretas'):
-        numeroJogador = 1
-        conjuntoAdversario = pecasBrancas
-
-    while(True):
-        if(numeroTurno % 2 == numeroJogador):
-            print('Está na sua vez.\n')
-            jogada = input()
-
-            origem, destino = TratarJogada(jogada)
-
-            status, tabuleiro = MoverPecas(origem, destino)
-
-            if(status):
-                numeroTurno += 1
-            else:
-                print('Jogada irregular!')
-        else:
-            print('Está na vez do outro jogador.\n')
-
-            #Esperar Jogada Lan
-            dadoEnvio = jogada
-            conexao.EnviarServidor(dadoEnvio)
-            jogada = conexao.ReceberServidor()
-
-            origem, destino = TratarJogada(jogada)
-
-            status, tabuleiro = MoverPecas(origem, destino)
-
-            numeroTurno += 1
-
+    try:
+        numeroTurno = 1
+        perdeu = False
+        conjuntoAdversario = None
+        
         ImprimirTabuleiro(tabuleiro)
 
-        if(usuario.conjuntoPecas.EstaCheckmate(tabuleiro, conjuntoAdversario)):
-            perdeu = True
+        if(usuario.corPecas == 'Brancas'):
+            numeroJogador = 1
+            numeroAdversario = 2
+            conjuntoAdversario = pecasPretas
+        elif(usuario.corPecas == 'Pretas'):
+            numeroJogador = 2
+            numeroAdversario = 1
+            conjuntoAdversario = pecasBrancas
 
-        if(usuario.conjuntoPecas.EstaCheck(tabuleiro, conjuntoAdversario)):
-            print('\033[91m' + 'Você está em check!' + '\033[0m')
+        while(True):
+            if(numeroTurno % 3 == numeroJogador):
+                print('Está na sua vez.\n')
+                jogada = input()
+
+                origem, destino = TratarJogada(jogada)
+
+                (status, tabuleiro) = MoverPecas(tabuleiro, origem, destino)
+
+                if(status):
+                    dadoEnvio = jogada
+                    conexao.EnviarServidor(dadoEnvio)
+
+                    numeroTurno += 1
+                else:
+                    input('Jogada irregular!')
+
+            elif(numeroTurno % 3 == numeroAdversario):
+                print('Está na vez do outro jogador.\n')
+
+                #Esperar Jogada Lan
+                jogada = conexao.ReceberServidor()
+
+                origem, destino = TratarJogada(jogada)
+
+                origem[0] = 7 - origem[0]
+                origem[1] = 7 - origem[1]
+                destino[0] = 7 - destino[0]
+                destino[1] = 7 - destino[1]
+
+                (status, tabuleiro) = MoverPecas(tabuleiro, origem, destino)
+
+                numeroTurno += 1
+
+            elif(numeroTurno % 3 == 0):
+                dadoEnvio = str(perdeu)
+
+                situacao = conexao.ReceberServidor()
+                conexao.EnviarServidor(dadoEnvio)
+                if(situacao == 'True' or dadoEnvio == 'True'):
+                    break
+
+                numeroTurno += 1
+
+            ImprimirTabuleiro(tabuleiro)
+
+            if(usuario.conjuntoPecas.EstaCheckmate(tabuleiro, conjuntoAdversario)):
+                perdeu = True
+
+            if(usuario.conjuntoPecas.EstaCheck(tabuleiro, conjuntoAdversario)):
+                print('\033[91m' + 'Você está em check!' + '\033[0m')
+                print()
+                print()
+            
+
+        if(perdeu):
+            os.system('clear || cls')
+            print('\033[91m' + 'Checkmate!\nVocê Perdeu!' + '\033[0m')
+            print()
+            print()
+        else:
+            os.system('clear || cls')
+            print('\033[92m' + 'Você Ganhou!' + '\033[0m')
             print()
             print()
 
-        dadoEnvio = str(perdeu)
-        situacao = conexao.ReceberServidor()
-        conexao.EnviarServidor(dadoEnvio)
-        if(situacao == 'True' or dadoEnvio == 'True'):
-            break
+        conexao.Finalizar()
 
-    if(perdeu):
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print('\033[91m' + 'Checkmate!\nVocê Perdeu!' + '\033[0m')
-        print()
-        print()
-    else:
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print('\033[92m' + 'Você Ganhou!' + '\033[0m')
-        print()
-        print()
+    except:
+        conexao.Finalizar()
 
 
 def JogarCliente(tabuleiro, pecasBrancas, pecasPretas, usuario, conexao):
-    numeroTurno = 0
-    perdeu = False
-    conjuntoAdversario = None
-    
-    ImprimirTabuleiro(tabuleiro)
-
-    if(usuario.corPecas == 'Brancas'):
-        numeroJogador = 0
-        conjuntoAdversario = pecasPretas
-    elif(usuario.corPecas == 'Pretas'):
-        numeroJogador = 1
-        conjuntoAdversario = pecasBrancas
-
-    while(True):
-        if(numeroTurno % 2 == numeroJogador):
-            print('Está na sua vez.\n')
-            jogada = input()
-
-            origem, destino = TratarJogada(jogada)
-
-            status, tabuleiro = MoverPecas(origem, destino)
-
-            if(status):
-                numeroTurno += 1
-            else:
-                print('Jogada irregular!')
-        else:
-            print('Está na vez do outro jogador.\n')
-
-            #Esperar Jogada Lan
-            dadoEnvio = jogada
-            conexao.EnviarCliente(dadoEnvio)
-            jogada = conexao.ReceberCliente()
-
-            origem, destino = TratarJogada(jogada)
-
-            status, tabuleiro = MoverPecas(origem, destino)
-
-            numeroTurno += 1
-
+    try:
+        numeroTurno = 1
+        perdeu = False
+        conjuntoAdversario = None
+        
         ImprimirTabuleiro(tabuleiro)
 
-        if(usuario.conjuntoPecas.EstaCheckmate(tabuleiro, conjuntoAdversario)):
-            perdeu = True
+        if(usuario.corPecas == 'Brancas'):
+            numeroJogador = 1
+            numeroAdversario = 2
+            conjuntoAdversario = pecasPretas
+        elif(usuario.corPecas == 'Pretas'):
+            numeroJogador = 2
+            numeroAdversario = 1
+            conjuntoAdversario = pecasBrancas
 
-        if(usuario.conjuntoPecas.EstaCheck(tabuleiro, conjuntoAdversario)):
-            print('\033[91m' + 'Você está em check!' + '\033[0m')
+        while(True):
+            if(numeroTurno % 3 == numeroJogador):
+                print('Está na sua vez.\n')
+                jogada = input()
+
+                origem, destino = TratarJogada(jogada)
+
+                (status, tabuleiro) = MoverPecas(tabuleiro, origem, destino)
+
+                if(status):
+                    dadoEnvio = jogada
+                    conexao.EnviarCliente(dadoEnvio)
+
+                    numeroTurno += 1
+                else:
+                    input('Jogada irregular!')
+
+            elif(numeroTurno % 3 == numeroAdversario):
+                print('Está na vez do outro jogador.\n')
+
+                #Esperar Jogada Lan
+                jogada = conexao.ReceberCliente()
+
+                origem, destino = TratarJogada(jogada)
+
+                origem[0] = 7 - origem[0]
+                origem[1] = 7 - origem[1]
+                destino[0] = 7 - destino[0]
+                destino[1] = 7 - destino[1]
+
+                (status, tabuleiro) = MoverPecas(tabuleiro, origem, destino)
+
+                numeroTurno += 1
+
+            elif(numeroTurno % 3 == 0):
+                dadoEnvio = str(perdeu)
+
+                conexao.EnviarCliente(dadoEnvio)
+                situacao = conexao.ReceberCliente()
+                if(situacao == 'True' or dadoEnvio == 'True'):
+                    break
+
+                numeroTurno += 1
+
+            ImprimirTabuleiro(tabuleiro)
+
+            if(usuario.conjuntoPecas.EstaCheckmate(tabuleiro, conjuntoAdversario)):
+                perdeu = True
+
+            if(usuario.conjuntoPecas.EstaCheck(tabuleiro, conjuntoAdversario)):
+                print('\033[91m' + 'Você está em check!' + '\033[0m')
+                print()
+                print()
+            
+
+        if(perdeu):
+            os.system('clear || cls')
+            print('\033[91m' + 'Checkmate!\nVocê Perdeu!' + '\033[0m')
+            print()
+            print()
+        else:
+            os.system('clear || cls')
+            print('\033[92m' + 'Você Ganhou!' + '\033[0m')
             print()
             print()
 
-        dadoEnvio = str(perdeu)
-        conexao.EnviarServidor(dadoEnvio)
-        situacao = conexao.ReceberServidor()
-        if(situacao == 'True' or dadoEnvio == 'True'):
-            break
+        conexao.Finalizar()
 
-    if(perdeu):
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print('\033[91m' + 'Checkmate!\nVocê Perdeu!' + '\033[0m')
-        print()
-        print()
-    else:
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print('\033[92m' + 'Você Ganhou!' + '\033[0m')
-        print()
-        print()
+    except:
+        conexao.Finalizar()
 
 
 def Main():
-    modo = input('Modo (servidor/cliente): ')
+    while(True):
+        modo = input('Modo (servidor/cliente): ')
+
+        if(modo in ['servidor', 'cliente']):
+            break
+        
+        else:
+            print('Entrada incorreta!\n')
 
     usuario = Usuario()
 
     ip = input('Ip servidor: ')
     porta = input('Porta: ')
-    
-    conexao = Conexao(ip, porta)
 
     if(modo == 'cliente'):
+        print()
+        print('Conectando ao servidor...')
+        conexao = Conexao(modo, ip, porta)
+        print('Conectado.\n')
         usuario.corPecas = EscolherCorCliente(conexao)
         pecasBrancas = ConjuntoPecas('Brancas', usuario.corPecas)
         pecasPretas = ConjuntoPecas('Pretas', usuario.corPecas)
@@ -462,6 +527,10 @@ def Main():
         JogarCliente(tabuleiro, pecasBrancas, pecasPretas, usuario, conexao)
 
     elif(modo == 'servidor'):
+        print()
+        print('Aguardando conexão do cliente...')
+        conexao = Conexao(modo, ip, porta)
+        print('Conectado.\n')
         usuario.corPecas = EscolherCorServidor(conexao)
         pecasBrancas = ConjuntoPecas('Brancas', usuario.corPecas)
         pecasPretas = ConjuntoPecas('Pretas', usuario.corPecas)
