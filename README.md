@@ -86,7 +86,7 @@ class ConexaoServidor:
 
 ## Camada de Aplicação 
 <p>
-  A conexão se inicia pela máquina **HOST** ou **SERVIDOR**  
+  A conexão se inicia pela máquina HOST ou SERVIDOR.
 </p>
 </body>
 </html>
