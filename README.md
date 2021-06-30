@@ -16,11 +16,11 @@
 </p>  
 
 ## Requisitos Mínimos
-- **Python 3.8:** É onde se encontra o corpo inteiro da aplicação
+- **Python 3.8:** É onde se encontra o corpo inteiro da aplicação;
 
-- **Computadores com conexão em LAN:** Os computadores que vão se comunicar via rede com o servidor
+- **Computadores com conexão em LAN:** Os computadores que vão se comunicar via rede com o servidor;
   
-- **Computador:** Espaço interno de 1MB, Processador   
+- **Computador:** Espaço interno de 1MB, Processador Celeron.  
 
 ## Porque usamos o Protocolo TCP 
 
