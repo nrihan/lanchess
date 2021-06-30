@@ -100,5 +100,8 @@ class ConexaoCliente:
 - **Connect():** É usado para se conectar a um endereço [servidor] remoto, é por isso que é do lado do cliente , conectar [ler como: conectar ao servidor] é usado;
 - **Listen():** É responsável por permitir que o servidor aceite conexões;
 - **Accept():** É responsável por aceitar a conexão;
+  
+## Funcionamento do Software
+  
 </body>
 </html>
