@@ -30,23 +30,57 @@
 ### Conexão a partir do cliente
 
 ```sh
-1 import socket
-2 HOST = '127.0.0.1'     # Endereco IP do Servidor
-3 PORT = 5000            # Porta que o Servidor esta
-4 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-5 dest = (HOST, PORT)
-6 tcp.connect(dest)
+import socket
+
+class ConexaoCliente:
+
+  def __init__(self):
+    self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    enderecoServidor = ('10.0.0.106', 5000)
+    self.sock.connect(enderecoServidor)
+
+
+  def enviar(self, dado):
+    self.sock.sendall(dado.encode('utf-8'))
+
+
+  def receber(self):
+    dado = self.sock.recv(1024)
+
+    # if not dado:
+      # Conexão perdida com o cliente
+
+    return dado.decode('utf-8')
+
+
+  def finalizar(self):
+    self.sock.close()
 ```
   
 ### Conexão a partir do servidor
 
 ```sh
-1 import socket
-2 HOST = ' '     # Endereco IP do Servidor
-3 PORT = 5000            # Porta que o Servidor esta
-4 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-5 dest = (HOST, PORT)
-6 tcp.connect(dest)
+import socket
+
+class ConexaoServidor:
+
+  def __init__(self):
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    enderecoServidor = ('10.0.0.106', 5000)
+    sock.bind(enderecoServidor)
+    sock.listen(1)
+    self.conexao, self.enderecoCliente = sock.accept()
+
+  def enviar(self, dado):
+    self.conexao.sendall(dado.encode('utf-8'))
+
+  def receber(self):
+    dado = self.conexao.recv(1024)
+
+    # if not dado:
+      # Conexão perdida com o cliente
+
+    return dado.decode('utf-8')
 ```
   
 
