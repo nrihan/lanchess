@@ -28,6 +28,33 @@
 <p>Em linhas bem gerais - o protocolo TCP divide a informação a ser transmitida em pacotes. Esses pacotes são enviados ao destino e, caso algum deles não chegue, ou chegue corrompido, o destino pode solicitar por esses pacotes de novo. Graças ao cabeçalho que o protocolo define em cima de cada pacote, o cliente consegue determinar se algum deles está faltando ou não. Já o protocolo UDP também quebra a informação em pacotes menores mas não tem o cuidado com a integridade ou a correção de perdas. Em vista disso optamos por escolher o TCP, pois a aplicação necessita de uma integridade de dados para que não haja erros no programa, visto que ao movimentar peças as informações não podem ser comprometidas ou perdidas.
 </p>
   
+### Conexão a partir do servidor
+
+```sh
+import socket
+
+class ConexaoServidor:
+
+  def __init__(self):
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    enderecoServidor = ('10.0.0.106', 5000)
+    sock.bind(enderecoServidor)
+    sock.listen(1)
+    self.conexao, self.enderecoCliente = sock.accept()
+
+  def enviar(self, dado):
+    self.conexao.sendall(dado.encode('utf-8'))
+
+  def receber(self):
+    dado = self.conexao.recv(1024)
+
+    # if not dado:
+      # Conexão perdida com o cliente
+
+    return dado.decode('utf-8')
+```
+
+  
 ### Conexão a partir do cliente
 
 ```sh
@@ -58,35 +85,10 @@ class ConexaoCliente:
     self.sock.close()
 ```
   
-### Conexão a partir do servidor
-
-```sh
-import socket
-
-class ConexaoServidor:
-
-  def __init__(self):
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    enderecoServidor = ('10.0.0.106', 5000)
-    sock.bind(enderecoServidor)
-    sock.listen(1)
-    self.conexao, self.enderecoCliente = sock.accept()
-
-  def enviar(self, dado):
-    self.conexao.sendall(dado.encode('utf-8'))
-
-  def receber(self):
-    dado = self.conexao.recv(1024)
-
-    # if not dado:
-      # Conexão perdida com o cliente
-
-    return dado.decode('utf-8')
-```
-
 ## Camada de Aplicação 
-<p>
-  A conexão se inicia pela máquina HOST ou SERVIDOR.
-</p>
+
+ - **Protocolo de aplicação:** A conexão se inicia pela máquina HOST ou SERVIDOR. 
+ - **Sockets:** Dois programas executados na mesma máquina ou dois computadores distintos podem se comunicar via uma série de funcionalidades de linguagem de programação e uma delas são os sockets.  Fazem a “ligação” do SO, que implementa os protocolos de transporte, rede, ... com aplicações que estão sendo executadas.
+  
 </body>
 </html>
