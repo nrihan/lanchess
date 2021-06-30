@@ -62,9 +62,7 @@ class ConexaoServidor:
 
     return dado.decode('utf-8')
 ```
-<h3> Comentários </h3> 
-  Inicializamos a aplicação criando um socket para fazer a ligação, logo após inserimos um construtor com os dados de IP e Porta para que possamos dar entrada na conexão e testar se o socket já está "ouvindo". Logo após temos dois contrutores responsáveis por controlar o envio e o recebimento dos dados e por fim finalizamos retornando o dado de conexão decodificado.
-  
+
 ### Conexão a partir do cliente
 
 ```sh
@@ -94,8 +92,11 @@ class ConexaoCliente:
   def finalizar(self):
     self.sock.close()
 ```
-  
+<h3> Comentários </h3> 
+<p>Inicializamos a aplicação criando um socket para fazer a ligação, logo após inserimos um construtor com os dados de IP e Porta para que possamos dar entrada na conexão e testar se o socket já está "ouvindo". Logo após temos dois contrutores responsáveis por controlar o envio e o recebimento dos dados e por fim finalizamos retornando o dado de conexão decodificado.</p><br>
+<p> Temos uma constante própria que especifica a comunicação remota, chamada de AF_INET. Essa constante faz parte de um grupo denominado famílias de endereços, ou address families, que constitui exatamente o primeiro parâmetro opcional do construtor socket. A AF_INET abrange os endereços do tipo IPv4, antigo padrão da Internet.<br></p>
+<p> Em relação ao tipo do socket, existem duas constantes mais importantes - a SOCK_STREAM, que define sockets de fluxo, e a SOCK_DGRAM, que define sockets de datagrama. Estamos usando a SOCK_STREAM pois basicamente, um socket de fluxo se refere ao protocolo TCP, enquanto um socket de datagrama, ao UDP. <br></p>
 
-  
+      
 </body>
 </html>
