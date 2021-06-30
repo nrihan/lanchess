@@ -302,18 +302,23 @@ def EscolherCorCliente(conexao):
 
 
 def TratarJogada(jogada):
-    jogada = jogada.split()
-    jogada = ''.join(jogada)
-    jogada = jogada.split('=>')
-    origem = jogada[0].split('x')
-    destino = jogada[1].split('x')
+    try:
+        jogada = jogada.split()
+        jogada = ''.join(jogada)
+        jogada = jogada.split('=>')
+        origem = jogada[0].split('x')
+        destino = jogada[1].split('x')
 
-    origem[0] = int(origem[0])
-    origem[1] = int(origem[1])
-    destino[0] = int(destino[0])
-    destino[1] = int(destino[1])
+        origem[0] = int(origem[0])
+        origem[1] = int(origem[1])
+        destino[0] = int(destino[0])
+        destino[1] = int(destino[1])
 
-    return origem, destino
+        return origem, destino
+
+    except:
+        print('Entrada incorreta!\n')
+        return False, False
 
 
 def JogarServidor(tabuleiro, pecasBrancas, pecasPretas, usuario, conexao):
@@ -335,10 +340,14 @@ def JogarServidor(tabuleiro, pecasBrancas, pecasPretas, usuario, conexao):
 
         while(True):
             if(numeroTurno % 3 == numeroJogador):
-                print('Está na sua vez.\n')
-                jogada = input()
+                while(True):
+                    print('Está na sua vez.\n')
 
-                origem, destino = TratarJogada(jogada)
+                    jogada = input()
+                    origem, destino = TratarJogada(jogada)
+
+                    if(origem != False and destino != False):
+                        break
 
                 (status, tabuleiro) = MoverPecas(tabuleiro, origem, destino)
 
@@ -348,7 +357,7 @@ def JogarServidor(tabuleiro, pecasBrancas, pecasPretas, usuario, conexao):
 
                     numeroTurno += 1
                 else:
-                    input('Jogada irregular!')
+                    input('Jogada irregular!\n')
 
             elif(numeroTurno % 3 == numeroAdversario):
                 print('Está na vez do outro jogador.\n')
@@ -424,10 +433,14 @@ def JogarCliente(tabuleiro, pecasBrancas, pecasPretas, usuario, conexao):
 
         while(True):
             if(numeroTurno % 3 == numeroJogador):
-                print('Está na sua vez.\n')
-                jogada = input()
+                while(True):
+                    print('Está na sua vez.\n')
 
-                origem, destino = TratarJogada(jogada)
+                    jogada = input()
+                    origem, destino = TratarJogada(jogada)
+
+                    if(origem != False and destino != False):
+                        break
 
                 (status, tabuleiro) = MoverPecas(tabuleiro, origem, destino)
 
@@ -437,7 +450,7 @@ def JogarCliente(tabuleiro, pecasBrancas, pecasPretas, usuario, conexao):
 
                     numeroTurno += 1
                 else:
-                    input('Jogada irregular!')
+                    input('Jogada irregular!\n')
 
             elif(numeroTurno % 3 == numeroAdversario):
                 print('Está na vez do outro jogador.\n')
