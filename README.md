@@ -15,12 +15,13 @@
   
 <p>Usamos um protocolo TCP que servem para quebrar em partes menos e enviar o arquivo pro endereço correto onde haverá a comunicação entre cliente e servidor, e a linguagem de programação Python v3.8.0, com adição do módulo de interface gráfica GTK e a biblioteca "socket", para nos auxiliar neste projeto. 
 </p>  
+
+## Requisitos Mínimos
+- **Python 3.8.0:** É onde se encontra o corpo inteiro da aplicação
+
+- **Computadores com conexão em LAN:** Os computadores que vão se comunicar via rede com o servidor
   
-- **One Dependency:** There is only one build dependency. It uses webpack, Babel, ESLint, and other amazing projects, but provides a cohesive curated experience on top of them.
-
-- **No Configuration Required:** You don't need to configure anything. A reasonably good configuration of both development and production builds is handled for you so you can focus on writing code.
-
-- **No Lock-In:** You can “eject” to a custom setup at any time. Run a single command, and all the configuration and build dependencies will be moved directly into your project, so you can pick up right where you left off.
+- **Computador:** Espaço interno de 1MB, Processador   
 
 ## Protocolo TCP 
 
