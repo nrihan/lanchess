@@ -13,11 +13,11 @@
 <p>Apresentaremos uma implementação de um jogo de xadrez que conecta cliente-servidor para que dois jogadores possam jogar um contra o outro via Rede. O intuito deste projeto é mostrar a conexão para que duas máquinas consigam se comunicar através de um programa cliente e um programa servidor.
 </p>
   
-<p>Usamos um protocolo TCP que servem para quebrar em partes menos e enviar o arquivo pro endereço correto onde haverá a comunicação entre cliente e servidor, e a linguagem de programação Python v3.8.0, com adição do módulo de interface gráfica GTK e a biblioteca "socket", para nos auxiliar neste projeto. 
+<p>Usamos um protocolo TCP que servem para quebrar em partes menos e enviar o arquivo pro endereço correto onde haverá a comunicação entre cliente e servidor, e a linguagem de programação Python v3.8, com adição do módulo de interface gráfica GTK e a biblioteca "socket", para nos auxiliar neste projeto. 
 </p>  
 
 ## Requisitos Mínimos
-- **Python 3.8.0:** É onde se encontra o corpo inteiro da aplicação
+- **Python 3.8:** É onde se encontra o corpo inteiro da aplicação
 
 - **Computadores com conexão em LAN:** Os computadores que vão se comunicar via rede com o servidor
   
