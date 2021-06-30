@@ -38,6 +38,17 @@
 6 tcp.connect(dest)
 ```
   
+### Conexão a partir do servidor
+
+```sh
+1 import socket
+2 HOST = ' '     # Endereco IP do Servidor
+3 PORT = 5000            # Porta que o Servidor esta
+4 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+5 dest = (HOST, PORT)
+6 tcp.connect(dest)
+```
+  
 
 
 </body>
