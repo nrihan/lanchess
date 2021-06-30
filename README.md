@@ -107,6 +107,7 @@ class Conexao:
         self.sock.close()```
 ```
 ### Funcionamento do Software 
+<h3> Conexão </h3>
 <p>Inicializamos a aplicação criando um socket para fazer a ligação, logo após críamos um métodos para leitura dos dados de IP e Porta para que possamos dar entrada na conexão e testar se o socket já está "ouvindo".</p> 
 <p> Temos uma constante própria que especifica a comunicação remota, chamada de AF_INET. Essa constante faz parte de um grupo denominado famílias de endereços, ou address families, que constitui exatamente o primeiro parâmetro opcional do construtor socket. A AF_INET abrange os endereços do tipo IPv4, antigo padrão da Internet.</p>
 <p>Em relação ao tipo do socket, existem duas constantes mais importantes - a SOCK_STREAM, que define sockets de fluxo, e a SOCK_DGRAM, que define sockets de datagrama. Estamos usando a SOCK_STREAM pois basicamente, um socket de fluxo se refere ao protocolo TCP, enquanto um socket de datagrama, ao UDP.</p>
@@ -116,6 +117,10 @@ class Conexao:
 - **Connect():** É usado para se conectar a um endereço [servidor] remoto, é por isso que é do lado do cliente , conectar [ler como: conectar ao servidor] é usado;
 - **Listen():** É responsável por permitir que o servidor aceite conexões;
 - **Accept():** É responsável por aceitar a conexão; 
+  
+  <h3> GAMEPLAY </h3>
+  
+  <p> O que forma o tabuleiro é uma matriz criada a partir dos objetos ("peças"), e para movimenta-las pelo próprio tabuleiro nós usamos uma questão de validação simples para ver se a peça realmente pode se mover pra onde foi indicada, se realmente é a vez daquele jogador ou se ele está movimentando realmente as peças dele, então a partir disso a peça é movida para o lugar desejado. As posições são atualizadas dentro dos objs e depois o tabuleiro é reimpresso na tela. </p>
   
 </body>
 </html>
