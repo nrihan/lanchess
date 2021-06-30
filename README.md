@@ -32,10 +32,10 @@
 
  - **Protocolo de aplicação:** A conexão se inicia pela máquina HOST ou SERVIDOR. 
  - **Sockets:** Dois programas executados na mesma máquina ou dois computadores distintos podem se comunicar via uma série de funcionalidades de linguagem de programação e uma delas são os sockets.  Fazem a “ligação” do SO, que implementa os protocolos de transporte, rede, ... com aplicações que estão sendo executadas.
-- **Informações de nível de rede:** Endereço
+- **Informações de nível de rede:** Endereço.
 - **Informações de nível de transporte:**
-      <br>– Protocolo
-      <br>– Porta
+      <br>– Protocolo;
+      <br>– Porta.
   
 ### Conexão a partir do servidor
 
@@ -62,7 +62,8 @@ class ConexaoServidor:
 
     return dado.decode('utf-8')
 ```
-
+<h3> Comentários </h3> 
+  Inicializamos a aplicação criando um socket para fazer a ligação, logo após inserimos um construtor com os dados de IP e Porta para que possamos dar entrada na conexão e testar se o socket já está "ouvindo". Logo após temos dois contrutores responsáveis por controlar o envio e o recebimento dos dados e por fim finalizamos retornando o dado de conexão decodificado.
   
 ### Conexão a partir do cliente
 
@@ -93,6 +94,8 @@ class ConexaoCliente:
   def finalizar(self):
     self.sock.close()
 ```
+  
+
   
 </body>
 </html>
