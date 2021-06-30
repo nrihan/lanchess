@@ -107,6 +107,15 @@ class Conexao:
         self.sock.close()```
 ```
 ### Funcionamento do Software 
+
+<h3> Execução </h3>
+  
+ <p> Para executar o programa, digite no terminal: </p>
+ 
+ ```sh
+  python Main.py
+ ```
+  
 <h3> Conexão </h3>
 <p>Inicializamos a aplicação criando um socket para fazer a ligação, logo após críamos um métodos para leitura dos dados de IP e Porta para que possamos dar entrada na conexão e testar se o socket já está "ouvindo".</p> 
 <p> Temos uma constante própria que especifica a comunicação remota, chamada de AF_INET. Essa constante faz parte de um grupo denominado famílias de endereços, ou address families, que constitui exatamente o primeiro parâmetro opcional do construtor socket. A AF_INET abrange os endereços do tipo IPv4, antigo padrão da Internet.</p>
