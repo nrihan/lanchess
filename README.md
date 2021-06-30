@@ -118,9 +118,9 @@ class Conexao:
 - **Listen():** É responsável por permitir que o servidor aceite conexões;
 - **Accept():** É responsável por aceitar a conexão; 
   
-  <h3> GAMEPLAY </h3>
+<h3> Movimentos </h3>
   
-  <p> O que forma o tabuleiro é uma matriz criada a partir dos objetos ("peças"), e para movimenta-las pelo próprio tabuleiro nós usamos uma questão de validação simples para ver se a peça realmente pode se mover pra onde foi indicada, se realmente é a vez daquele jogador ou se ele está movimentando realmente as peças dele, então a partir disso a peça é movida para o lugar desejado. As posições são atualizadas dentro dos objs e depois o tabuleiro é reimpresso na tela. </p>
+<p> O que forma o tabuleiro é uma matriz criada a partir dos objetos ("peças"), e para movimenta-las pelo próprio tabuleiro nós usamos uma questão de validação simples para ver se a peça realmente pode se mover pra onde foi indicada, se realmente é a vez daquele jogador ou se ele está movimentando realmente as peças dele, então a partir disso a peça é movida para o lugar desejado. As posições são atualizadas dentro dos objs e depois o tabuleiro é reimpresso na tela. </p>
   
 </body>
 </html>
